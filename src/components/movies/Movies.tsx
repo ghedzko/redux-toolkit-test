@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectMovies } from '../../state/selectors/movies';
 import { fetchMovies } from '../../state/slices/movies';
 
 function Movies() {
   const dispatch = useDispatch()
-  const [movie, setMovie] = useState<any>();
+  const movies = useSelector(selectMovies)
   useEffect(()=>{dispatch(fetchMovies())},[])
+  useEffect(()=>{console.log({movies});},[movies])
   return <div>
-    <span>{movie?.data.Title }</span>
+    <span>{movies?.data.Title }</span>
   </div>;
 }
 

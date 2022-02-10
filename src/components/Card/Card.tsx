@@ -4,8 +4,8 @@ interface CardProps {
   children: JSX.Element;
 }
 
-function Card(): JSX.Element {
-  return <div className={styles.wrapper}></div>;
+function Card({ children }: CardProps): JSX.Element {
+  return <div className={styles.wrapper}>{children}</div>;
 }
 
 export default Card;
